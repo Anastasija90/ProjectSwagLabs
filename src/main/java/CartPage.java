@@ -38,6 +38,4 @@ public class CartPage extends BasePage{
     public void buttomCheckout (){
         checkout.click();
     }
-
-
 }

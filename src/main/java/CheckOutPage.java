@@ -19,6 +19,12 @@ public class CheckOutPage extends BasePage {
     @FindBy (css = ".summary_total_label")
     WebElement totalPrice;
 
+    @FindBy (id = "finish")
+    WebElement finishButtom;
+
+    @FindBy (className = "complete-header")
+    WebElement infoMessage;
+
     public CheckOutPage(ChromeDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -31,7 +37,7 @@ public class CheckOutPage extends BasePage {
         continueButton.click();
     }
 
-    public String getItemPrice(){
+    public String getItemPrice() {
         return  itemPrice.getText();
     }
     public String getTotalPrice() {
@@ -41,7 +47,16 @@ public class CheckOutPage extends BasePage {
         itemPrice.isDisplayed();
     }*/
 
-   /* public void getTotalPrice (){
+   /* public void getTotalPrice () {
         totalPrice.isDisplayed();
     }*/
+
+    public void clickFinishButtom() {
+        finishButtom.click();
+    }
+
+    public String getInfoMessage() {
+        return infoMessage.getText();
+    }
+
 }

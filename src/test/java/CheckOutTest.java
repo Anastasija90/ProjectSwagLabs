@@ -50,8 +50,21 @@ public class CheckOutTest extends BaseTest {
         /*Assert.assertEquals(checkOutPage.totalPrice.isDisplayed(),true,"Total: $86.38");*/
     }
 
-    @AfterMethod
+    @Test   // 4
+    public void buyingProcess() {
+        loginPage.LoginOnPage("standard_user","secret_sauce");
+        inventoryPage.addBackpack();
+        inventoryPage.addBikeLight();
+        inventoryPage.clickOnCart();
+        cartPage.buttomCheckout();
+        checkOutPage.inputPersonalInfo("Anastasija","Savic","11000");
+        checkOutPage.clickFinishButtom();
+        Assert.assertEquals(checkOutPage.getInfoMessage(),"Thank you for your order!");
+    }
+
+   @AfterMethod
     public void after() {
         driver.quit();
     }
+
 }
