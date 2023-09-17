@@ -12,31 +12,24 @@ public class CheckOutPage extends BasePage {
     WebElement postalCode;
     @FindBy(id = "continue")
     WebElement continueButton;
-
     @FindBy (css = ".summary_subtotal_label")
     WebElement itemPrice;
-
     @FindBy (css = ".summary_total_label")
     WebElement totalPrice;
-
     @FindBy (id = "finish")
     WebElement finishButtom;
-
     @FindBy (className = "complete-header")
     WebElement infoMessage;
-
     public CheckOutPage(ChromeDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
     public void inputPersonalInfo(String name, String lastname, String zip){
         firstName.sendKeys(name);
         lastName.sendKeys(lastname);
         postalCode.sendKeys(zip);
         continueButton.click();
     }
-
     public String getItemPrice() {
         return  itemPrice.getText();
     }
@@ -46,17 +39,13 @@ public class CheckOutPage extends BasePage {
     /* public void getItemPrice() {
         itemPrice.isDisplayed();
     }*/
-
    /* public void getTotalPrice () {
         totalPrice.isDisplayed();
     }*/
-
     public void clickFinishButtom() {
         finishButtom.click();
     }
-
     public String getInfoMessage() {
         return infoMessage.getText();
     }
-
 }
